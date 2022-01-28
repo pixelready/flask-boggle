@@ -1,5 +1,5 @@
 from unittest import TestCase
-
+import json
 from app import app, games
 
 # Make Flask errors be real errors, not HTML pages with error info
@@ -32,5 +32,14 @@ class BoggleAppTestCase(TestCase):
         """Test starting a new game."""
 
         with self.client as client:
-            ...
-            # write a test for this route
+            response = client.post('/api/new-game')
+            json_response = response.get_data(as_text=True)
+            game_data = json.loads(json_response)
+
+            #Testing board is 5x5
+            self.assertEqual(len(game_data["board"]), 5)
+            self.assertEqual(len(game_data["board"][0]), 5)
+
+            #Testing gameId is a string
+            self.assertIs(type(game_data["gameId"]), str)
+            
