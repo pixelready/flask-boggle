@@ -8,9 +8,9 @@ class WordList:
     def __init__(self, dict_path="dictionary.txt"):
         """Create a word list from a dictionary file on disk.
 
-            >>> wl = WordList("test_dictionary.txt")
-            >>> wl.words == {'CAT', 'DOG'}
-            True
+        >>> wl = WordList("test_dictionary.txt")
+        >>> wl.words == {'CAT', 'DOG'}
+        True
         """
 
         self.words = self._read_dict(dict_path)
@@ -30,13 +30,13 @@ class WordList:
     def check_word(self, word):
         """Is word in word list?
 
-            >>> wl = WordList("test_dictionary.txt")
-            >>> wl.check_word("CAT")
-            True
-            >>> wl.check_word("SQUIRREL")
-            False
-            >>> wl.check_word("cat")
-            False
+        >>> wl = WordList("test_dictionary.txt")
+        >>> wl.check_word("CAT")
+        True
+        >>> wl.check_word("SQUIRREL")
+        False
+        >>> wl.check_word("cat")
+        False
 
         """
         return word in self.words
