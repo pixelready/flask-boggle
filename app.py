@@ -33,3 +33,8 @@ def new_game():
     })
 
     return json_response
+
+
+# @app.post("api/score-word")
+# def score_word():
+    
